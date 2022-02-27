@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 11:53:14 by bonturk           #+#    #+#             */
-/*   Updated: 2022/02/27 11:53:17 by bonturk          ###   ########.tr       */
+/*   Created: 2022/02/27 11:52:50 by bonturk           #+#    #+#             */
+/*   Updated: 2022/02/27 11:52:56 by bonturk          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	counter;
+#include <unistd.h>
 
-	counter = 0;
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+{
 	while (*str != '\0')
 	{
-		counter++;
+		ft_putchar(*str);
 		str++;
 	}
-	return (counter);
 }

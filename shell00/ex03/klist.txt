@@ -1,0 +1,5 @@
+Credentials cache: API:6B174436-F897-42F1-AFBF-23DC909B1615
+        Principal: bonturk@42KOCAELI.COM.TR
+
+  Issued                Expires               Principal
+Feb 14 13:56:20 2022  Feb 14 23:56:20 2022  krbtgt/42KOCAELI.COM.TR@42KOCAELI.COM.TR

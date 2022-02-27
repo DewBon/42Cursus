@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 11:53:14 by bonturk           #+#    #+#             */
-/*   Updated: 2022/02/27 11:53:17 by bonturk          ###   ########.tr       */
+/*   Created: 2022/02/27 11:52:13 by bonturk           #+#    #+#             */
+/*   Updated: 2022/02/27 11:52:17 by bonturk          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	counter;
+#include <unistd.h>
 
-	counter = 0;
-	while (*str != '\0')
+int	ft_atoi(char *str)
+{
+	int	c;
+	int	s;
+	int	res;
+
+	c = 0;
+	s = 1;
+	res = 0;
+	while ((str[c] >= '\t' && str[c] <= '\r') || str[c] == ' ')
+		c++;
+	while (str[c] == '+' || str[c] == '-')
 	{
-		counter++;
-		str++;
+		if (str[c] == '-')
+			s *= -1;
+		c++;
 	}
-	return (counter);
+	while (str[c] >= '0' && str[c] <= '9')
+	{
+		res = (str[c] - '0') + (res * 10);
+		c++;
+	}
+	return (res * s);
 }
