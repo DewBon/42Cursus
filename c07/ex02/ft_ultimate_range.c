@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 17:40:38 by bonturk           #+#    #+#             */
-/*   Updated: 2022/02/27 17:40:41 by bonturk          ###   ########.tr       */
+/*   Created: 2022/03/02 17:08:20 by bonturk           #+#    #+#             */
+/*   Updated: 2022/03/02 17:08:22 by bonturk          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char*src, unsigned int nb)
-{
-	unsigned int	sr;
-	unsigned int	de;
+#include <stdlib.h>
 
-	de = 0;
-	while (dest[de] != '\0')
-		de++;
-	sr = 0;
-	while (sr < nb && src[sr] != '\0')
+int	ft_ultimate_range(int **range, int min, int max)
+{
+	int	*tab;
+	int	i;
+
+	if (min >= max)
 	{
-		dest[de + sr] = src[sr];
-		sr++;
+		*range = NULL;
+		return (0);
 	}
-	dest[de + sr] = '\0';
-	return (dest);
+	tab = malloc(sizeof(int) * (max - min));
+	if (tab == NULL)
+		return (-1);
+	else
+	{
+		i = 0;
+		while (i < max - min)
+		{
+			tab[i] = min + i;
+			i++;
+		}
+		*range = tab;
+		return (i);
+	}
 }

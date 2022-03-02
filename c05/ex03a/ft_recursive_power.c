@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 17:40:38 by bonturk           #+#    #+#             */
-/*   Updated: 2022/02/27 17:40:41 by bonturk          ###   ########.tr       */
+/*   Created: 2022/03/01 15:55:29 by bonturk           #+#    #+#             */
+/*   Updated: 2022/03/01 15:55:40 by bonturk          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char*src, unsigned int nb)
+int	ft_recursive_power(int nb, int power)
 {
-	unsigned int	sr;
-	unsigned int	de;
+	int	n;
 
-	de = 0;
-	while (dest[de] != '\0')
-		de++;
-	sr = 0;
-	while (sr < nb && src[sr] != '\0')
-	{
-		dest[de + sr] = src[sr];
-		sr++;
-	}
-	dest[de + sr] = '\0';
-	return (dest);
+	n = nb;
+	if (power > 1)
+		return (n * ft_recursive_power(n, power - 1));
+	else if (power == 0)
+		return (1);
+	else if (power < 0)
+		return (0);
+	else
+		return (n);
 }

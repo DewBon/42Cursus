@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 17:40:38 by bonturk           #+#    #+#             */
-/*   Updated: 2022/02/27 17:40:41 by bonturk          ###   ########.tr       */
+/*   Created: 2022/03/01 16:00:57 by bonturk           #+#    #+#             */
+/*   Updated: 2022/03/01 16:01:02 by bonturk          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char*src, unsigned int nb)
+int	ft_sqrt(int nb)
 {
-	unsigned int	sr;
-	unsigned int	de;
+	int	n;
 
-	de = 0;
-	while (dest[de] != '\0')
-		de++;
-	sr = 0;
-	while (sr < nb && src[sr] != '\0')
+	n = 1;
+	if (nb > 0)
 	{
-		dest[de + sr] = src[sr];
-		sr++;
+		while (n * n <= nb)
+		{
+			if (n * n == nb)
+				return (n);
+			else if (n >= 46341)
+				return (0);
+			n++;
+		}
 	}
-	dest[de + sr] = '\0';
-	return (dest);
+	return (0);
 }

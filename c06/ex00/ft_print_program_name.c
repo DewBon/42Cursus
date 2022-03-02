@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 17:40:38 by bonturk           #+#    #+#             */
-/*   Updated: 2022/02/27 17:40:41 by bonturk          ###   ########.tr       */
+/*   Created: 2022/03/01 17:00:13 by bonturk           #+#    #+#             */
+/*   Updated: 2022/03/01 17:00:19 by bonturk          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char*src, unsigned int nb)
-{
-	unsigned int	sr;
-	unsigned int	de;
+#include <unistd.h>
 
-	de = 0;
-	while (dest[de] != '\0')
-		de++;
-	sr = 0;
-	while (sr < nb && src[sr] != '\0')
+int	main(int argc, char *argv[])
+{
+	int	i;
+
+	i = 0;
+	if (argc < 1)
+		return (0);
+	while (argv[0][i] != '\0')
 	{
-		dest[de + sr] = src[sr];
-		sr++;
+		write(1, &argv[0][i], 1);
+		i ++;
 	}
-	dest[de + sr] = '\0';
-	return (dest);
+	write(1, "\n", 1);
+	return (1);
 }

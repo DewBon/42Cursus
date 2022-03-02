@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/27 17:40:25 by bonturk           #+#    #+#             */
+/*   Updated: 2022/02/27 17:40:29 by bonturk          ###   ########.tr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_strlen(char *str)
 {
 	int	counter;
@@ -24,20 +36,4 @@ char	*ft_strcat(char *dest, char *src)
 	}
 	dest[c] = '\0';
 	return (dest);
-}
-
-#include <stdio.h>
-
-char	*ft_strcat(char *dest, char *src);
-
-int		main(void)
-{
-	char dest[20] = "Hello";
-	char src[] = ", world!";
-
-	printf("-----\ndest = %s\nsrc = %s\n", dest, src);
-	ft_strcat(dest, src);
-	printf("result = %s\n-----\n", dest);
-
-	return (0);
 }

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 17:40:38 by bonturk           #+#    #+#             */
-/*   Updated: 2022/02/27 17:40:41 by bonturk          ###   ########.tr       */
+/*   Created: 2022/03/02 17:08:00 by bonturk           #+#    #+#             */
+/*   Updated: 2022/03/02 17:08:03 by bonturk          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char*src, unsigned int nb)
-{
-	unsigned int	sr;
-	unsigned int	de;
+#include <stdlib.h>
 
-	de = 0;
-	while (dest[de] != '\0')
-		de++;
-	sr = 0;
-	while (sr < nb && src[sr] != '\0')
+char	*ft_strdup(char *src)
+{
+	char	*ptr;
+	int		n;
+
+	n = 0;
+	while (src[n])
+		n++;
+	ptr = malloc(sizeof(char) * (n + 1));
+	if (!ptr)
+		return (NULL);
+	n = 0;
+	while (src[n])
 	{
-		dest[de + sr] = src[sr];
-		sr++;
+		ptr[n] = src[n];
+		n++;
 	}
-	dest[de + sr] = '\0';
-	return (dest);
+	ptr[n] = '\0';
+	return (ptr);
 }

@@ -1,8 +1,18 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/01 16:03:55 by bonturk           #+#    #+#             */
+/*   Updated: 2022/03/01 16:04:03 by bonturk          ###   ########.tr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int		ft_iterative_factorial(int nb)
+int	ft_iterative_factorial(int nb)
 {
-	int res;
+	int	res;
 
 	res = 1;
 	if (nb < 0)
@@ -12,8 +22,4 @@ int		ft_iterative_factorial(int nb)
 	while (nb > 0)
 		res *= nb--;
 	return (res);
-}
-
-int main() {
-	printf("%d",ft_iterative_factorial(4));
 }

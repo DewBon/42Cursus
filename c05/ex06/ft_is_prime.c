@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 17:40:38 by bonturk           #+#    #+#             */
-/*   Updated: 2022/02/27 17:40:41 by bonturk          ###   ########.tr       */
+/*   Created: 2022/03/01 16:02:04 by bonturk           #+#    #+#             */
+/*   Updated: 2022/03/01 16:02:08 by bonturk          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char*src, unsigned int nb)
+int	ft_is_prime(int nb)
 {
-	unsigned int	sr;
-	unsigned int	de;
+	int	n;
 
-	de = 0;
-	while (dest[de] != '\0')
-		de++;
-	sr = 0;
-	while (sr < nb && src[sr] != '\0')
+	n = 2;
+	if (nb < 2)
+		return (0);
+	while (n <= nb / 2)
 	{
-		dest[de + sr] = src[sr];
-		sr++;
+		if (nb % n == 0)
+			return (0);
+		n++;
 	}
-	dest[de + sr] = '\0';
-	return (dest);
+	return (1);
 }

@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bonturk <bonturk@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 17:40:38 by bonturk           #+#    #+#             */
-/*   Updated: 2022/02/27 17:40:41 by bonturk          ###   ########.tr       */
+/*   Created: 2022/03/02 17:08:30 by bonturk           #+#    #+#             */
+/*   Updated: 2022/03/02 17:08:31 by bonturk          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char*src, unsigned int nb)
-{
-	unsigned int	sr;
-	unsigned int	de;
+#include <stdlib.h>
 
-	de = 0;
-	while (dest[de] != '\0')
-		de++;
-	sr = 0;
-	while (sr < nb && src[sr] != '\0')
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	char	*s;
+	int		i;
+	int		j;
+	int		c;
+
+	s = malloc(sizeof(strs));
+	i = 0;
+	c = 0;
+	while (i < size)
 	{
-		dest[de + sr] = src[sr];
-		sr++;
+		j = 0;
+		while (strs[i][j] != '\0')
+		{
+			s[c++] = strs[i][j++];
+		}
+		j = 0;
+		while (sep[j] != '\0' && i != size - 1)
+		{
+			s[c++] = sep[j++];
+		}
+		i++;
 	}
-	dest[de + sr] = '\0';
-	return (dest);
+	s[c] = '\0';
+	return (s);
 }
